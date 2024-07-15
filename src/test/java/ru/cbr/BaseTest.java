@@ -2,10 +2,15 @@ package ru.cbr;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import ru.cbr.blocks.HeaderBlock;
+import ru.cbr.pages.MainPage;
 import ru.cbr.pages.SiteMapPage;
 
 public class BaseTest {
     SiteMapPage siteMapPage = new SiteMapPage();
+    MainPage mainPage = new MainPage();
+    HeaderBlock headerBlock = new HeaderBlock();
+
 
     @BeforeAll
     static void beforeAll() {
