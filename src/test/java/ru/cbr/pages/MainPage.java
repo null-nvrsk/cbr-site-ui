@@ -1,44 +1,28 @@
 package ru.cbr.pages;
 
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Configuration.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
 
-    private final String HEAD_TITLE_TEXT = "Центральный банк Российской Федерации | Банк России";
-    private final  String INFLATION_TARGET_TEXT = "Цель по инфляции";
-
-    SelenideElement popupCookies = $(".popup-cookies");
-    SelenideElement popupCookiesConfirmButton = $(".popup-cookies .btn");
-
-
-
-    SelenideElement inflationTargetTitle = $(".main-indicator .main-indicator_info");
-
-
     public MainPage openPage() {
-        open("/");
-
-        // popup-cookies
-        if (popupCookies.exists())
-            popupCookiesConfirmButton.click();
-
-
-        inflationTargetTitle.shouldHave(text(INFLATION_TARGET_TEXT));
+        // По умолчанию в BeforeEach открывается главная страница
+        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
+        if(!currentUrl.equals(baseUrl + "/"))
+            open("/");
         return this;
     }
 
-    public MainPage verifyMainPage() {
+    public MainPage verifySiteTitle(String title) {
+        $("title").shouldHave(attribute("text", title));
+        return this;
+    }
 
-        // popup-cookies
-        if (popupCookies.exists())
-            popupCookiesConfirmButton.click();
-
-        $("title").shouldHave(attribute("text", HEAD_TITLE_TEXT));
-        inflationTargetTitle.shouldHave(text(INFLATION_TARGET_TEXT));
+    public MainPage verifyInflationTargetTitle(String title) {
+        $(".main-indicator .main-indicator_info").shouldHave(text(title));
         return this;
     }
 }

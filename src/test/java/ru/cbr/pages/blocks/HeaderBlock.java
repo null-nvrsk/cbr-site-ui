@@ -1,4 +1,4 @@
-package ru.cbr.blocks;
+package ru.cbr.pages.blocks;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;

@@ -10,7 +10,8 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 @DisplayName("Проверка шапки сайта (верхний блок)")
 public class HeaderBlockTests extends BaseTest {
 
-    // TODO: Убрать popup-окно про Cookies (когда оно открывается, из любого окна)
+    private final String HEAD_TITLE_TEXT = "Центральный банк Российской Федерации | Банк России";
+    private final String INFLATION_TARGET_TEXT = "Цель по инфляции";
 
     @Test
     @DisplayName("Логотип кликабельный")
@@ -27,7 +28,8 @@ public class HeaderBlockTests extends BaseTest {
         });
 
         step("Проверяем, что перешли на главную страницу", () -> {
-            mainPage.verifyMainPage();
+            mainPage.verifySiteTitle(HEAD_TITLE_TEXT);
+            mainPage.verifyInflationTargetTitle(INFLATION_TARGET_TEXT);
         });
     }
 }
