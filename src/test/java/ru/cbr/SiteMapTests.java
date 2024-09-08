@@ -1,10 +1,8 @@
 package ru.cbr;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -22,8 +20,6 @@ public class SiteMapTests extends BaseTest {
     @Owner("MaksimSkomorokhov")
     @Tag("CBR-15")
     void mainGroupsTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
         step("Открываем страницу \"Карта сайта\"", () -> {
             siteMapPage.openPage();
         });
