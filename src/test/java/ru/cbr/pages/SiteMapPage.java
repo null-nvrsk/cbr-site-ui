@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class SiteMapPage
 {
-    private String TITLE_TEXT = "Карта сайта";
+    private final String TITLE_TEXT = "Карта сайта";
     SelenideElement mainTitle = $("h1");
     ElementsCollection mapBlockTitles = $$("h3.map_block_title");
 
