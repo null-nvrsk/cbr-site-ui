@@ -7,6 +7,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import ru.cbr.pages.SearchPage;
 import ru.cbr.pages.blocks.FooterBlock;
 import ru.cbr.pages.blocks.HeaderBlock;
 import ru.cbr.pages.MainPage;
@@ -20,6 +21,7 @@ public class BaseTest {
     MainPage mainPage = new MainPage();
     HeaderBlock headerBlock = new HeaderBlock();
     FooterBlock footerBlock = new FooterBlock();
+    SearchPage searchPage = new SearchPage();
 
     SelenideElement popupCookies = $(".popup-cookies");
     SelenideElement popupCookiesConfirmButton = $(".popup-cookies .btn");
@@ -28,8 +30,7 @@ public class BaseTest {
     static void beforeAll() {
         Configuration.baseUrl = "https://www.cbr.ru";
         Configuration.browserPosition = "0x0";
-        Configuration.browserSize = "1920x1040";
-//        Configuration.holdBrowserOpen = true;
+        Configuration.browserSize = "1920x1080";
 
         SelenideLogger.addListener("allure", new AllureSelenide());
     }

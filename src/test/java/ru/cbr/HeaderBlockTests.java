@@ -32,4 +32,26 @@ public class HeaderBlockTests extends BaseTest {
             mainPage.verifyInflationTargetTitle(INFLATION_TARGET_TEXT);
         });
     }
+
+    @Test
+    @DisplayName("Быстрый поиск на главной странице")
+    @Owner("MaksimSkomorokhov")
+    @Tag("CBR-2")
+    void quickSearchTest() {
+        String searchText = "цифровой рубль";
+
+        step("Открыть главную страниц", () -> {
+            mainPage.openPage();
+        });
+
+        step("Ввести запрос в поле поиска и нажить кнопку \"Искать\"", () -> {
+
+            headerBlock.searchOnSite(searchText);
+        });
+
+        step("Проверить результаты поиска", () -> {
+            searchPage.verifyPageTitle();
+            searchPage.verifyFoundInformation(searchText);
+        });
+    }
 }
