@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Oct 27 12:50:57 GMT 2024","Sun Oct 27 12:50:59 GMT 2024","1901","","Проверка футера сайта (нижний блок)","","ru.cbr.tests.FooterBlockTests","footerPhoneNumberTest","Проверка номеров телефонов в футере Телефон +7 499 300-30-00 есть",""
+"passed","Sun Oct 27 12:50:56 GMT 2024","Sun Oct 27 12:50:57 GMT 2024","734","","Проверка футера сайта (нижний блок)","","ru.cbr.tests.FooterBlockTests","footerPhoneNumberTest","Проверка номеров телефонов в футере Телефон 8 800 300-30-00 есть",""
+"passed","Sun Oct 27 12:50:48 GMT 2024","Sun Oct 27 12:50:56 GMT 2024","7588","","Проверка футера сайта (нижний блок)","","ru.cbr.tests.FooterBlockTests","footerPhoneNumberTest","Проверка номеров телефонов в футере Телефон 300 есть",""
+"passed","Sun Oct 27 12:50:59 GMT 2024","Sun Oct 27 12:51:02 GMT 2024","2967","","Проверка шапки сайта (верхний блок)","","ru.cbr.tests.HeaderBlockTests","quickSearchTest","Быстрый поиск на главной странице",""
+"passed","Sun Oct 27 12:51:02 GMT 2024","Sun Oct 27 12:51:06 GMT 2024","4034","","Проверка шапки сайта (верхний блок)","","ru.cbr.tests.HeaderBlockTests","checkClickableLogoTest","Логотип кликабельный",""
+"passed","Sun Oct 27 12:51:06 GMT 2024","Sun Oct 27 12:51:10 GMT 2024","4077","","Проверка страницы ""Карта сайта""","","ru.cbr.tests.SiteMapTests","mainGroupsTest","Проверка заголовков верхнего уровня",""
