@@ -1,18 +1,14 @@
 package ru.cbr.pages;
 
-import com.codeborne.selenide.WebDriverRunner;
-
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Configuration.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.attribute;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class MainPage {
 
     public MainPage openPage() {
-        // По умолчанию в BeforeEach открывается главная страница
-        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        if(!currentUrl.equals(baseUrl + "/"))
-            open("/");
+        open("/");
         return this;
     }
 

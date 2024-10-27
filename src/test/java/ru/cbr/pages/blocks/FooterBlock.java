@@ -9,5 +9,4 @@ public class FooterBlock {
         $$(".footer_phone_val").find(exactText(phoneNumber)).shouldBe(visible);
         return this;
     }
-
 }

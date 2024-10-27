@@ -15,7 +15,6 @@ public class SearchPage {
     }
 
     public SearchPage verifyFoundInformation(String searchString) {
-
         $$(".cross-result .date-number .number").first().shouldHave(text("1"));
         $(".cross-results").shouldHave(text(searchString));
         return this;

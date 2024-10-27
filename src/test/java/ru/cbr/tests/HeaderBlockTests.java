@@ -1,6 +1,5 @@
-package ru.cbr;
+package ru.cbr.tests;
 
-import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -15,12 +14,12 @@ public class HeaderBlockTests extends BaseTest {
 
     @Test
     @DisplayName("Логотип кликабельный")
-    @Owner("MaksimSkomorokhov")
     @Tag("CBR-1")
     void checkClickableLogoTest() {
         step("Открываем не главную страниц", () -> {
             // TODO: переходим на случайную страницу из списка
             siteMapPage.openPage();
+            clearCookies();
         });
 
         step("Кликаем на логотип в шапке", () -> {
@@ -35,19 +34,16 @@ public class HeaderBlockTests extends BaseTest {
 
     @Test
     @DisplayName("Быстрый поиск на главной странице")
-    @Owner("MaksimSkomorokhov")
     @Tag("CBR-2")
     void quickSearchTest() {
         String searchText = "цифровой рубль";
 
         step("Открыть главную страниц", () -> {
             mainPage.openPage();
+            clearCookies();
         });
 
-        step("Ввести запрос в поле поиска и нажить кнопку \"Искать\"", () -> {
-
-            headerBlock.searchOnSite(searchText);
-        });
+        step("Ввести запрос в поле поиска и нажить кнопку \"Искать\"", () -> headerBlock.searchOnSite(searchText));
 
         step("Проверить результаты поиска", () -> {
             searchPage.verifyPageTitle();

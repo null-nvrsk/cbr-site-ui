@@ -8,15 +8,15 @@ import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class SiteMapPage
-{
-    private final String TITLE_TEXT = "Карта сайта";
+public class SiteMapPage {
+
+    String titleText = "Карта сайта";
     SelenideElement mainTitle = $("h1");
     ElementsCollection mapBlockTitles = $$("h3.map_block_title");
 
     public SiteMapPage openPage() {
         open("/sitemap");
-        mainTitle.shouldHave(text(TITLE_TEXT));
+        mainTitle.shouldHave(text(titleText));
         return this;
     }
 

@@ -1,7 +1,6 @@
-package ru.cbr;
+package ru.cbr.tests;
 
 import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -13,11 +12,11 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 @Story("Карта сайта")
 @DisplayName("Проверка страницы \"Карта сайта\"")
 public class SiteMapTests extends BaseTest {
-    private final int MAP_BLOCKS_COUNT = 24;
+
+    int mapBlocksCount = 24;
 
     @Test
     @DisplayName("Проверка заголовков верхнего уровня")
-    @Owner("MaksimSkomorokhov")
     @Tag("CBR-15")
     void mainGroupsTest() {
         step("Открываем страницу \"Карта сайта\"", () -> {
@@ -25,10 +24,9 @@ public class SiteMapTests extends BaseTest {
         });
 
         step("Проверяем количество блоков вехнего уровня", () -> {
-            siteMapPage.verifyMainBlocksCount(MAP_BLOCKS_COUNT);
+            siteMapPage.verifyMainBlocksCount(mapBlocksCount);
         });
 
-        // TODO: Сделать проверку через ValueSource или CsvRource
         step("Проверяем заголовок каждого блока", () -> {
             siteMapPage
                     .verifyMainBlockTitle("Денежно-кредитная политика")
