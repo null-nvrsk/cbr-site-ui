@@ -50,4 +50,24 @@ public class HeaderBlockTests extends BaseTest {
             searchPage.verifyFoundInformation(searchText);
         });
     }
+
+    @Test
+    @DisplayName("Переключение языка (RU -> EN, EN -> RU)")
+    @Tag("CBR-4")
+    void switchLocaleTest() {
+        step("Открыть главную страниц", () -> {
+            mainPage.openPage();
+            clearCookies();
+        });
+
+        step("Переключаемся на EN", () -> {
+            mainPage.switchLanguage("EN");
+            mainPage.verifyLanguage("EN");
+        });
+
+        step("Переключаемся на RU", () -> {
+            mainPage.switchLanguage("RU");
+            mainPage.verifyLanguage("RU");
+        });
+    }
 }
