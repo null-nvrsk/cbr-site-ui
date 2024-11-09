@@ -1,12 +1,14 @@
 plugins {
     id 'java'
+    id 'io.freefair.lombok' version '8.10.2'
     id 'io.qameta.allure' version '2.12.0'
 }
 
 
-def selenideVersion = "6.19.1",
+def selenideVersion = "7.5.1",
     junitVersion = "5.11.3",
-    allureVersion = "2.30.0"
+    allureVersion = "2.30.0",
+    allureSelenideVersion = "2.29.0"
 
 allure {
     report {
@@ -30,12 +32,11 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
-
 dependencies {
     testImplementation (
         "com.codeborne:selenide:$selenideVersion",
         "org.junit.jupiter:junit-jupiter:$junitVersion",
-        "io.qameta.allure:allure-selenide:2.13.9",  // подходит для Java 8
+        "io.qameta.allure:allure-selenide:$allureSelenideVersion",
         "org.slf4j:slf4j-simple:2.0.12"
     )
 }
