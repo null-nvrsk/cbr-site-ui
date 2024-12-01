@@ -61,7 +61,7 @@ public class BaseTest {
         Attach.browserConsoleLogs();
         Attach.addVideo();
 
-        closeWebDriver();
+//        closeWebDriver();
     }
 
     public void clearCookies() {
