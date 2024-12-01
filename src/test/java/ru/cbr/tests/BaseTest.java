@@ -36,9 +36,7 @@ public class BaseTest {
     static void beforeAll() {
         Configuration.baseUrl = "https://www.cbr.ru";
         Configuration.browserPosition = "0x0";
-        Configuration.browserSize = "1920x1080";
 
-        Configuration.baseUrl = System.getProperty("baseUrl");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "125");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
