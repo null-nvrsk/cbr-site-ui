@@ -19,7 +19,7 @@ public class FinOrgTests extends BaseTest {
     }
 
     @ValueSource(strings = {
-            "Все", "действующий", "недействующий"
+            "Все", "Действует", "Не действует"
     })
     @DisplayName("Поиск организаций типа \"Бюро кредитных историй\" со статусом вида деятельности")
     @ParameterizedTest(name = "Со статусом вида деятельности \"{0}\" должен показать не пустой список")
@@ -49,13 +49,13 @@ public class FinOrgTests extends BaseTest {
     }
 
     @EnumSource(Region.class)
-    @DisplayName("Поиск по региону организаций типа \"Микрофинансовые организации\" со статусом \"действующий\"")
+    @DisplayName("Поиск по региону организаций типа \"Микрофинансовые организации\" со статусом \"Действует\"")
     @ParameterizedTest(name = "По региону \"{0}\" должен показать не пустой список")
     @Tag("CBR-21")
     void searchFinOrgWithFilterByRegionTest(Region region) {
         finOrgPage
                 .selectFilterTypeOrganisation("Микрофинансовые организации")
-                .selectFilterActivityStatus("действующий")
+                .selectFilterActivityStatus("Действует")
                 .selectFilterRegion(region.description)
                 .clickSearchButton();
 

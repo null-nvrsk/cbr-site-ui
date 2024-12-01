@@ -5,6 +5,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.Keys;
 import ru.cbr.pages.FinOrgPage;
@@ -15,8 +16,7 @@ import ru.cbr.pages.blocks.FooterBlock;
 import ru.cbr.pages.blocks.HeaderBlock;
 import ru.cbr.pages.components.OffsetMenu;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.actions;
+import static com.codeborne.selenide.Selenide.*;
 
 public class BaseTest {
 
@@ -35,6 +35,11 @@ public class BaseTest {
         Configuration.browserSize = "1920x1080";
 
         SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @AfterEach
+    void addAttachment() {
+        closeWebDriver();
     }
 
     public void clearCookies() {
