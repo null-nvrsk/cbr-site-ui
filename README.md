@@ -2,11 +2,11 @@
 ## :pushpin: Содержание:
 
 - [Использованный стек технологий](#computer-использованный-стек-технологий)
-- [Запуск тестов из терминала](#arrow_forward-запуск-тестов-из-терминала)
-- [Сборка в Jenkins](#сборка-в-jenkins)
-- [Пример Allure-отчета](#пример-allure-отчета)
-- [Уведомления в Telegram с использованием бота](#уведомления-в-telegram-с-использованием-бота)
-- [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-теста-в-selenoid)
+- [Запуск автотестов](#arrow_forward-запуск-автотестов)
+- [Сборка в Jenkins](#-сборка-в-jenkins)
+- [Пример Allure-отчета](#-пример-allure-отчета)
+- [Уведомления в Telegram с использованием бота](#-уведомления-в-telegram-с-использованием-бота)
+- [Видео примера запуска тестов в Selenoid](#-видео-примера-запуска-тестов-в-selenoid)
 
 ## :computer: Использованный стек технологий
 
@@ -111,7 +111,7 @@ test
 <img width="70%" title="Telegram Notifications" src="media/screens/notification.png">
 </p>
 
-## <img title="Telegram" src="media/icons/selenoid.svg" height="32" style="vertical-align:middle"> Видео примера запуска тестов в Selenoid
+## <img title="Seleniod" src="media/icons/selenoid.svg" height="32" style="vertical-align:middle"> Видео примера запуска тестов в Selenoid
 
 К каждому тесту в отчете прилагается видео прогона.
 <p align="center">
