@@ -19,7 +19,7 @@
         <td align="center"><img src="media/icons/junit5.svg" height="48"></td>
         <td align="center"><img src="media/icons/selenide.svg" height="48"></td>
         <td align="center"><img src="media/icons/selenoid.svg" height="48"></td>
-        <td align="center"><img src="media/icons/allure.svg" height="48"></td>
+        <td align="center"><img src="media/icons/allure_report.svg" height="48"></td>
         <td align="center"><img src="media/icons/jenkins.svg" height="48"></td>
         <td align="center"><img src="media/icons/telegram.svg" height="48"></td>
     </tr>
@@ -52,55 +52,58 @@
 
 ## :arrow_forward: Запуск автотестов
 
-### Запуск тестов из терминала
+### Запуск тестов локольно из терминала
 ```
-gradle clean main_test
+gradle clean test
 ```
-При выполнении команды, данные тесты запустятся удаленно в <code>Selenoid</code>.
+При выполнении команды, данные тесты запустятся локально в IDE.
 
 ### Запуск тестов на удаленном браузере
 ```
-gradle clean test -Denv=main
+gradle clean test -DselenoidUrl="selenoid.autotests.cloud" -DselenoidAuth="some_login:some_password"
 ```
+При выполнении команды, данные тесты запустятся удаленно в <code>Selenoid</code>.
 При необходимости также можно переопределить параметры запуска
 
 ```
 clean
-main -DremoteUrl=${SELENOID_URL}
--DbaseUrl=${BASE_URL}
+test
+-DselenoidUrl=${SELENOID_URL}
+-DselenoidAuth=${SELENOID_AUTH}
+-Dbrowser=${BROWSER}
+-DbrowserVersion="${BROWSER_VERSION}"
 -DbrowserSize=${BROWSER_SIZE}
--Dbrowser=${BROWSER_NAME}
--Dbrowser_version="${BROWSER_VERSION}"
 ```
 
 ### Параметры сборки
 
-* <code>BROWSER_NAME</code> – браузер, в котором будут выполняться тесты. По-умолчанию - <code>chrome</code>.
-* <code>BROWSER_VERSION</code> – версия браузера, в которой будут выполняться тесты. По-умолчанию - <code>100.0</code>.
-* <code>BROWSER_SIZE</code> – размер окна браузера, в котором будут выполняться тесты.
-* <code>BASE_URL</code> – Url, по которому будет открываться тестируемое приложение. По-умолчанию - <code>1920x1080</code>.
-* <code>REMOTE_BROWSER_URL</code> – адрес удаленного сервера, на котором будут запускаться тесты.
+* <code>BROWSER</code> – браузер, в котором будут выполняться тесты. По-умолчанию - <code>chrome</code>.
+* <code>BROWSER_VERSION</code> – версия браузера, в которой будут выполняться тесты. По-умолчанию - <code>125.0</code>.
+* <code>BROWSER_SIZE</code> – размер окна браузера, в котором будут выполняться тесты. По-умолчанию - <code>1920x1080</code>.
+* <code>SELENOID_URL</code> – адрес удаленного сервера Selenoid, на котором будут запускаться тесты.
+* <code>SELENOID_AUTH</code> – логин:пароль для доступа к удаленному серверу Selenoid.
+* 
 
-## <img src="media/logo/Jenkins.svg" title="Jenkins" width="4%"/> Сборка в Jenkins
+## <img src="media/icons/jenkins.svg" title="Jenkins" height="32" style="vertical-align:middle"/> Сборка в Jenkins
 <p align="center">
-<img title="Jenkins Build" src="media/screens/JenkinsBuild.png">
+<img title="Jenkins Build" src="media/screens/jenkins_build.png">
 </p>
 
-## <img src="media/logo/Allure_Report.svg" title="Allure Report" width="4%"/> Пример Allure-отчета
+## <img src="media/icons/allure_report.svg" title="Allure Report" height="32" style="vertical-align:middle"/> Пример Allure-отчета
 ### Overview
 
 <p align="center">
-<img title="Allure Overview" src="media/screens/allureReport.png">
+<img title="Allure Overview" src="media/screens/allure_overview.png">
 </p>
 
 ### Результат выполнения теста
 
 <p align="center">
-<img title="Test Results in Alure" src="media/screens/ResultTest.png">
+<img title="Test Results in Alure" src="media/screens/allure_testcase.png">
 </p>
 
 
-## <img width="4%" style="vertical-align:middle" title="Telegram" src="media/logo/Telegram.svg"> Уведомления в Telegram с использованием бота
+## <img title="Telegram" src="media/icons/telegram.svg" height="32" style="vertical-align:middle"> Уведомления в Telegram с использованием бота
 
 После завершения сборки, бот созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с результатом.
 
@@ -108,7 +111,7 @@ main -DremoteUrl=${SELENOID_URL}
 <img width="70%" title="Telegram Notifications" src="media/screens/notification.png">
 </p>
 
-## Видео примера запуска тестов в Selenoid
+## <img title="Telegram" src="media/icons/selenoid.svg" height="32" style="vertical-align:middle"> Видео примера запуска тестов в Selenoid
 
 К каждому тесту в отчете прилагается видео прогона.
 <p align="center">
