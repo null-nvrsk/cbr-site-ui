@@ -40,16 +40,18 @@ public class BaseTest {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "125");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.remote = "https://" +
-                System.getProperty("selenoidAuth") + "@"
-                + System.getProperty("selenoidUrl") + "/wd/hub";
+        if (System.getProperty("selenoidUrl") != null) {
+            Configuration.remote = "https://" +
+                    System.getProperty("selenoidAuth") + "@"
+                    + System.getProperty("selenoidUrl") + "/wd/hub";
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
-        Configuration.browserCapabilities = capabilities;
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                    "enableVNC", true,
+                    "enableVideo", true
+            ));
+            Configuration.browserCapabilities = capabilities;
+        }
 
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
@@ -61,7 +63,7 @@ public class BaseTest {
         Attach.browserConsoleLogs();
         Attach.addVideo();
 
-//        closeWebDriver();
+        closeWebDriver();
     }
 
     public void clearCookies() {
