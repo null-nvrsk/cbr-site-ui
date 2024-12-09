@@ -17,7 +17,6 @@ public class HeaderBlockTests extends BaseTest {
     @Tag("CBR-1")
     void checkClickableLogoTest() {
         step("Открываем не главную страниц", () -> {
-            // TODO: переходим на случайную страницу из списка
             siteMapPage.openPage();
             clearCookies();
         });

@@ -10,27 +10,35 @@ import org.junit.jupiter.params.provider.ValueSource;
 import ru.cbr.models.CompanyInfo;
 import ru.cbr.models.Region;
 
+import static com.codeborne.selenide.logevents.SelenideLogger.step;
+
 @DisplayName("Поиск организаций, участников финансового рынка")
 public class FinOrgTests extends BaseTest {
 
     @BeforeEach
     void setUp() {
-        finOrgPage.openPage();
+        step("Открываем страницу \"Участники финансового рынка\"", () -> {
+            finOrgPage.openPage();
+        });
     }
 
     @ValueSource(strings = {
             "Все", "Действует", "Не действует"
     })
     @DisplayName("Поиск организаций типа \"Бюро кредитных историй\" со статусом вида деятельности")
-    @ParameterizedTest(name = "Со статусом вида деятельности \"{0}\" должен показать не пустой список")
+    @ParameterizedTest(name = "\"{0}\" должен показать не пустой список")
     @Tag("CBR-20")
     void searchFinOrgWithFilterByStatusTest(String status) {
-        finOrgPage
-                .selectFilterTypeOrganisation("Бюро кредитных историй")
-                .selectFilterActivityStatus(status)
-                .clickSearchButton();
+        step("Выбираем статус среди \"Бюро кредитных историй\"", () -> {
+            finOrgPage
+                    .selectFilterTypeOrganisation("Бюро кредитных историй")
+                    .selectFilterActivityStatus(status)
+                    .clickSearchButton();
+        });
 
-        finOrgPage.verifyResultNotEmpty();
+        step("Проверяем, что в результатах есть хотя бы 1 организация", () -> {
+            finOrgPage.verifyResultNotEmpty();
+        });
     }
 
     @DisplayName("Поиск организаций по неполному названию")
@@ -40,25 +48,33 @@ public class FinOrgTests extends BaseTest {
     void checkByPartialNameOfTheOrganizationTest(String requestString, String companyName, String INN,
                                                  String OGRN, String status)
     {
-        finOrgPage
-                .inputSearchPrase(requestString)
-                .clickSearchButton();
+        step("Ищет по неполному названию организации", () -> {
+            finOrgPage
+                    .inputSearchPrase(requestString)
+                    .clickSearchButton();
+        });
 
-        CompanyInfo expectedCompanyInfo = new CompanyInfo(companyName, INN, OGRN, status);
-        finOrgPage.verifyCompanyInformation(expectedCompanyInfo);
+        step("Проверяем, что в списке найденных организаций есть искомая организация", () -> {
+            CompanyInfo expectedCompanyInfo = new CompanyInfo(companyName, INN, OGRN, status);
+            finOrgPage.verifyCompanyInformation(expectedCompanyInfo);
+        });
     }
 
     @EnumSource(Region.class)
     @DisplayName("Поиск по региону организаций типа \"Микрофинансовые организации\" со статусом \"Действует\"")
-    @ParameterizedTest(name = "По региону \"{0}\" должен показать не пустой список")
+    @ParameterizedTest(name = ", по региону \"{0}\" должен показать не пустой список")
     @Tag("CBR-21")
     void searchFinOrgWithFilterByRegionTest(Region region) {
-        finOrgPage
-                .selectFilterTypeOrganisation("Микрофинансовые организации")
-                .selectFilterActivityStatus("Действует")
-                .selectFilterRegion(region.description)
-                .clickSearchButton();
+        step("Выбираем регион среди \"Микрофинансовые организации\"", () -> {
+            finOrgPage
+                    .selectFilterTypeOrganisation("Микрофинансовые организации")
+                    .selectFilterActivityStatus("Действует")
+                    .selectFilterRegion(region.description)
+                    .clickSearchButton();
+        });
 
-        finOrgPage.verifyResultNotEmpty();
+        step("Проверяем, что в результатах есть хотя бы 1 организация", () -> {
+            finOrgPage.verifyResultNotEmpty();
+        });
     }
 }
