@@ -38,7 +38,7 @@ public class BaseTest {
         Configuration.browserPosition = "0x0";
 
         Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "125");
+        Configuration.browserVersion = System.getProperty("browserVersion", "125.0");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         if (System.getProperty("selenoidUrl") != null) {
             Configuration.remote = "https://" +
@@ -60,7 +60,7 @@ public class BaseTest {
     void addAttachment() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        Attach.browserConsoleLogs();
+        //Attach.browserConsoleLogs();
         Attach.addVideo();
 
         closeWebDriver();
