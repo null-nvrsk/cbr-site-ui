@@ -38,7 +38,7 @@ public class BaseTest {
         Configuration.browserPosition = "0x0";
 
         Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "125.0");
+        Configuration.browserVersion = System.getProperty("browserVersion", "125");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         if (System.getProperty("selenoidUrl") != null) {
             Configuration.remote = "https://" +
