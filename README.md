@@ -12,16 +12,16 @@
 
 <table align="center" border="0">
     <tr>
-        <td align="center"><a href="https://www.java.com/"><img src="media/icons/java.svg" height="48"></a></td>
-        <td align="center"><a href="https://www.jetbrains.com/idea/"><img src="media/icons/idea.svg" height="48"></a></td>
-        <td align="center"><a href="https://github.com/"><img src="media/icons/github.svg" height="48"></a></td>
-        <td align="center"><a href="https://gradle.org/"><img src="media/icons/gradle.svg" height="48"></a></td>
-        <td align="center"><a href="https://junit.org/junit5/"><img src="media/icons/junit5.svg" height="48"></a></td>
-        <td align="center"><a href="https://selenide.org/"><img src="media/icons/selenide.svg" height="48"></a></td>
-        <td align="center"><a href="https://aerokube.com/selenoid/"><img src="media/icons/selenoid.svg" height="48"></a></td>
-        <td align="center"><a href="https://allurereport.org/"><img src="media/icons/allure_report.svg" height="48"></a></td>
-        <td align="center"><a href="https://www.jenkins.io/"><img src="media/icons/jenkins.svg" height="48"></a></td>
-        <td align="center"><a href="https://telegram.org/"><img src="media/icons/telegram.svg" height="48"></a></td>
+        <td align="center"><a href="https://www.java.com/" target="_blank"><img src="media/icons/java.svg" height="48"></a></td>
+        <td align="center"><a href="https://www.jetbrains.com/idea/" target="_blank"><img src="media/icons/idea.svg" height="48"></a></td>
+        <td align="center"><a href="https://github.com/" target="_blank"><img src="media/icons/github.svg" height="48"></a></td>
+        <td align="center"><a href="https://gradle.org/" target="_blank"><img src="media/icons/gradle.svg" height="48"></a></td>
+        <td align="center"><a href="https://junit.org/junit5/" target="_blank"><img src="media/icons/junit5.svg" height="48"></a></td>
+        <td align="center"><a href="https://selenide.org/" target="_blank"><img src="media/icons/selenide.svg" height="48"></a></td>
+        <td align="center"><a href="https://aerokube.com/selenoid/" target="_blank"><img src="media/icons/selenoid.svg" height="48"></a></td>
+        <td align="center"><a href="https://allurereport.org/" target="_blank"><img src="media/icons/allure_report.svg" height="48"></a></td>
+        <td align="center"><a href="https://www.jenkins.io/" target="_blank"><img src="media/icons/jenkins.svg" height="48"></a></td>
+        <td align="center"><a href="https://telegram.org/" target="_blank"><img src="media/icons/telegram.svg" height="48"></a></td>
     </tr>
     <tr>
         <td align="center">Java</td>
