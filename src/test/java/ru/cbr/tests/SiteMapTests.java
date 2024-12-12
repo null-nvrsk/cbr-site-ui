@@ -23,7 +23,7 @@ public class SiteMapTests extends BaseTest {
             siteMapPage.openPage();
         });
 
-        step("Проверяем количество блоков вехнего уровня", () -> {
+        step("Проверяем количество блоков верхнего уровня", () -> {
             siteMapPage.verifyMainBlocksCount(mapBlocksCount);
         });
 
