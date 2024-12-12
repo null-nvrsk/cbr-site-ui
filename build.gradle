@@ -47,3 +47,16 @@ test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
 }
+
+task smoke_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("smoke")
+    }
+
+}
+
+task regression_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags("regression")
+    }
+}

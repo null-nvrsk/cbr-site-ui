@@ -2,6 +2,7 @@ package ru.cbr.tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
@@ -14,7 +15,11 @@ public class HeaderBlockTests extends BaseTest {
 
     @Test
     @DisplayName("Логотип кликабельный")
-    @Tag("CBR-1")
+    @Tags({
+            @Tag("smoke"),
+            @Tag("regression"),
+            @Tag("CBR-1")
+    })
     void checkClickableLogoTest() {
         step("Открываем не главную страниц", () -> {
             siteMapPage.openPage();
@@ -33,7 +38,11 @@ public class HeaderBlockTests extends BaseTest {
 
     @Test
     @DisplayName("Быстрый поиск на главной странице")
-    @Tag("CBR-2")
+    @Tags({
+            @Tag("smoke"),
+            @Tag("regression"),
+            @Tag("CBR-2")
+    })
     void quickSearchTest() {
         String searchText = "цифровой рубль";
 
@@ -52,7 +61,11 @@ public class HeaderBlockTests extends BaseTest {
 
     @Test
     @DisplayName("Переключение языка (RU -> EN, EN -> RU)")
-    @Tag("CBR-4")
+    @Tags({
+            @Tag("smoke"),
+            @Tag("regression"),
+            @Tag("CBR-4")
+    })
     void switchLocaleTest() {
         step("Открыть главную страниц", () -> {
             mainPage.openPage();
