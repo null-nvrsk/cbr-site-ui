@@ -52,9 +52,11 @@
 
 ## :arrow_forward: Запуск автотестов
 
-### Запуск тестов локольно из терминала
+### Запуск тестов локально из терминала
 ```
-gradle clean test
+gradle clean smoke_tests
+
+gradle clean regression_tests
 ```
 При выполнении команды, данные тесты запустятся локально в IDE.
 
