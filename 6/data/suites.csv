@@ -1,8 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","1255","Логотип кликабельный","","Mon Nov 04 14:55:29 GMT 2024","passed","Mon Nov 04 14:55:30 GMT 2024","","Проверка шапки сайта (верхний блок)","ru.cbr.tests.HeaderBlockTests","checkClickableLogoTest"
-"","523","Проверка номеров телефонов в футере Телефон 8 800 300-30-00 есть","","Mon Nov 04 14:55:20 GMT 2024","passed","Mon Nov 04 14:55:21 GMT 2024","","Проверка футера сайта (нижний блок)","ru.cbr.tests.FooterBlockTests","footerPhoneNumberTest"
-"","2228","Переключение языка (RU -> EN, EN -> RU)","","Mon Nov 04 14:55:23 GMT 2024","passed","Mon Nov 04 14:55:25 GMT 2024","","Проверка шапки сайта (верхний блок)","ru.cbr.tests.HeaderBlockTests","switchLocaleTest"
-"","2065","Проверка номеров телефонов в футере Телефон +7 499 300-30-00 есть","","Mon Nov 04 14:55:21 GMT 2024","passed","Mon Nov 04 14:55:23 GMT 2024","","Проверка футера сайта (нижний блок)","ru.cbr.tests.FooterBlockTests","footerPhoneNumberTest"
-"","3591","Быстрый поиск на главной странице","","Mon Nov 04 14:55:25 GMT 2024","passed","Mon Nov 04 14:55:29 GMT 2024","","Проверка шапки сайта (верхний блок)","ru.cbr.tests.HeaderBlockTests","quickSearchTest"
-"","4193","Проверка заголовков верхнего уровня","","Mon Nov 04 14:55:30 GMT 2024","passed","Mon Nov 04 14:55:34 GMT 2024","","Проверка страницы ""Карта сайта""","ru.cbr.tests.SiteMapTests","mainGroupsTest"
-"","5570","Проверка номеров телефонов в футере Телефон 300 есть","","Mon Nov 04 14:55:15 GMT 2024","passed","Mon Nov 04 14:55:20 GMT 2024","","Проверка футера сайта (нижний блок)","ru.cbr.tests.FooterBlockTests","footerPhoneNumberTest"
