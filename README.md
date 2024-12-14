@@ -66,10 +66,14 @@ gradle clean regression_tests
 
 
 ### Запуск тестов на удаленном браузере
+- Smoke-тесты
 ```
 gradle clean smoke_tests -DselenoidUrl="selenoid.autotests.cloud" -DselenoidAuth="some_login:some_password"
-gradle clean regression_tests -DselenoidUrl="selenoid.autotests.cloud" -DselenoidAuth="some_login:some_password"
+```
 
+- Регрессионные тесты
+```
+gradle clean regression_tests -DselenoidUrl="selenoid.autotests.cloud" -DselenoidAuth="some_login:some_password"
 ```
 При выполнении команды, данные тесты запустятся удаленно в <code>Selenoid</code>.
 При необходимости также можно переопределить параметры запуска
@@ -87,7 +91,7 @@ ${TASK}
 ### Параметры сборки
 
  – .
-* <code>TASK</code> – Команда запуска тестов. По-умолчанию - <code>smoke_test</code>.
+* <code>TASK</code> – Команда запуска тестов.
 * <code>BROWSER</code> – браузер, в котором будут выполняться тесты. По-умолчанию - <code>chrome</code>.
 * <code>BROWSER_VERSION</code> – версия браузера, в которой будут выполняться тесты. По-умолчанию - <code>125.0</code>.
 * <code>BROWSER_SIZE</code> – размер окна браузера, в котором будут выполняться тесты. По-умолчанию - <code>1920x1080</code>.
