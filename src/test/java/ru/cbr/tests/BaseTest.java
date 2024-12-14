@@ -60,7 +60,7 @@ public class BaseTest {
     void addAttachment() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        //Attach.browserConsoleLogs();
+        Attach.browserConsoleLogs();
         Attach.addVideo();
 
         closeWebDriver();
