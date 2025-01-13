@@ -3,32 +3,34 @@ package ru.cbr.tests;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 @DisplayName("Проверка футера сайта (нижний блок)")
 public class FooterBlockTests extends BaseTest {
 
-    @ParameterizedTest(name = "Телефон {0} есть")
+    String[] phoneNumbers = {
+            "300",
+            "8 800 300-30-00",
+            "+7 499 300-30-00"
+    };
+
+    @Test
     @DisplayName("Проверка номеров телефонов в футере")
     @Tags({
             @Tag("regression"),
             @Tag("CBR-9")
     })
-    @ValueSource(strings = {
-            "300",
-            "8 800 300-30-00",
-            "+7 499 300-30-00"
-    })
-    void footerPhoneNumberTest(String phoneNumber) {
+    void footerPhoneNumberTest() {
         step("Открываем главную страниц", () -> {
             mainPage.openPage();
             clearCookies();
         });
-        step("Проверить телефон {{phoneNumber}}", () -> {
-            footerBlock.verifyPhoneNumber(phoneNumber);
-        });
+        for (String number : phoneNumbers) {
+            step("Проверить телефон {{phoneNumber}}", () -> {
+                footerBlock.verifyPhoneNumber(number);
+            });
+        }
     }
 }
