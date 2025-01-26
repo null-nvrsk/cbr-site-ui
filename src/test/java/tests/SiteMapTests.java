@@ -1,10 +1,9 @@
-package ru.cbr.tests;
+package tests;
 
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
@@ -18,15 +17,11 @@ public class SiteMapTests extends BaseTest {
 
     @Test
     @DisplayName("Проверка заголовков верхнего уровня")
-    @Tags({
-            @Tag("smoke"),
-            @Tag("regression"),
-            @Tag("CBR-15")
-    })
+    @Tag("smoke")
+    @Tag("regression")
+    @Tag("CBR-15")
     void mainGroupsTest() {
-        step("Открываем страницу \"Карта сайта\"", () -> {
-            siteMapPage.openPage();
-        });
+        siteMapPage.openPage();
 
         step("Проверяем количество блоков верхнего уровня", () -> {
             siteMapPage.verifyMainBlocksCount(mapBlocksCount);

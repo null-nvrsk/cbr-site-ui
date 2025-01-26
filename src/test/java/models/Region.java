@@ -1,4 +1,4 @@
-package ru.cbr.models;
+package models;
 
 public enum Region {
 

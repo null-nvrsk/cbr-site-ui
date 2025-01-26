@@ -1,11 +1,8 @@
-package ru.cbr.tests;
+package tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 @DisplayName("Проверка футера сайта (нижний блок)")
 public class FooterBlockTests extends BaseTest {
@@ -18,19 +15,13 @@ public class FooterBlockTests extends BaseTest {
 
     @Test
     @DisplayName("Проверка номеров телефонов в футере")
-    @Tags({
-            @Tag("regression"),
-            @Tag("CBR-9")
-    })
+    @Tag("regression")
+    @Tag("CBR-9")
     void footerPhoneNumberTest() {
-        step("Открываем главную страниц", () -> {
-            mainPage.openPage();
-            clearCookies();
-        });
+        mainPage.openPage();
+
         for (String number : phoneNumbers) {
-            step("Проверить телефон {{phoneNumber}}", () -> {
-                footerBlock.verifyPhoneNumber(number);
-            });
+            footerBlock.verifyPhoneNumber(number);
         }
     }
 }

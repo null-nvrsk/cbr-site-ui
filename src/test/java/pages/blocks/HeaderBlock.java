@@ -1,7 +1,8 @@
-package ru.cbr.pages.blocks;
+package pages.blocks;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -11,6 +12,7 @@ public class HeaderBlock {
     SelenideElement searchFieldInput = $$(".home-header_search_field input").find(Condition.visible);
     SelenideElement searchFieldButton = $$(".home-header_search_field button").find(Condition.visible);
 
+    @Step("Кликнуть на логотип в шапке")
     public void clickLogo() {
         logoLink.click();
     }

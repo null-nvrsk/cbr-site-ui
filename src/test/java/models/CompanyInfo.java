@@ -1,4 +1,4 @@
-package ru.cbr.models;
+package models;
 
 import lombok.Data;
 

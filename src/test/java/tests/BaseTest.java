@@ -1,4 +1,4 @@
-package ru.cbr.tests;
+package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -7,16 +7,18 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import ru.cbr.helpers.Attach;
-import ru.cbr.pages.FinOrgPage;
-import ru.cbr.pages.MainPage;
-import ru.cbr.pages.SearchPage;
-import ru.cbr.pages.SiteMapPage;
-import ru.cbr.pages.blocks.FooterBlock;
-import ru.cbr.pages.blocks.HeaderBlock;
-import ru.cbr.pages.components.OffsetMenu;
+import helpers.Attach;
+import pages.FinOrgPage;
+import pages.MainPage;
+import pages.SearchPage;
+import pages.SiteMapPage;
+import pages.blocks.FooterBlock;
+import pages.blocks.HeaderBlock;
+import pages.components.CookiesComponent;
+import pages.components.OffsetMenu;
 
 import java.util.Map;
 
@@ -31,6 +33,7 @@ public class BaseTest {
     SearchPage searchPage = new SearchPage();
     FinOrgPage finOrgPage = new FinOrgPage();
     OffsetMenu offsetMenu = new OffsetMenu();
+    CookiesComponent cookiesComponent = new CookiesComponent();
 
     @BeforeAll
     static void beforeAll() {
@@ -56,6 +59,11 @@ public class BaseTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
+    @BeforeEach
+    void setUp() {
+        cookiesComponent.addAcceptCookies();
+    }
+
     @AfterEach
     void addAttachment() {
         Attach.screenshotAs("Last screenshot");
@@ -66,16 +74,16 @@ public class BaseTest {
         closeWebDriver();
     }
 
-    public void clearCookies() {
-        SelenideElement popupCookies = $(".popup-cookies");
-        SelenideElement popupCookiesConfirmButton = $(".popup-cookies .btn");
-
-        Selenide.clearBrowserCookies();
-        Selenide.clearBrowserLocalStorage();
-
-        if (popupCookies.exists() && popupCookies.isDisplayed())
-            popupCookiesConfirmButton.click();
-
-        actions().sendKeys(Keys.HOME).perform();
-    }
+//    public void clearCookies() {
+//        SelenideElement popupCookies = $(".popup-cookies");
+//        SelenideElement popupCookiesConfirmButton = $(".popup-cookies .btn");
+//
+//        Selenide.clearBrowserCookies();
+//        Selenide.clearBrowserLocalStorage();
+//
+//        if (popupCookies.exists() && popupCookies.isDisplayed())
+//            popupCookiesConfirmButton.click();
+//
+//        actions().sendKeys(Keys.HOME).perform();
+//    }
 }

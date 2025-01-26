@@ -1,4 +1,6 @@
-package ru.cbr.pages;
+package pages;
+
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -6,6 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
 
+    @Step("Открыть главную страниц")
     public MainPage openPage() {
         open("/");
         return this;

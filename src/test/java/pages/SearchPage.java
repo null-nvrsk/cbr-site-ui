@@ -1,4 +1,4 @@
-package ru.cbr.pages;
+package pages;
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;

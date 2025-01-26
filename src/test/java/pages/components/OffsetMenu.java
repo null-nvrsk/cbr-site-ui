@@ -1,4 +1,4 @@
-package ru.cbr.pages.components;
+package pages.components;
 
 import com.codeborne.selenide.Configuration;
 

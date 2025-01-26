@@ -1,8 +1,7 @@
-package ru.cbr.tests;
+package tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
@@ -12,23 +11,16 @@ public class HeaderBlockTests extends BaseTest {
 
     private final String headTitleText = "Центральный банк Российской Федерации | Банк России";
     private final String inflationTargetText = "Цель по инфляции";
+    private final String searchText = "цифровой рубль";
 
     @Test
     @DisplayName("Логотип кликабельный")
-    @Tags({
-            @Tag("smoke"),
-            @Tag("regression"),
-            @Tag("CBR-1")
-    })
+    @Tag("smoke")
+    @Tag("regression")
+    @Tag("CBR-1")
     void checkClickableLogoTest() {
-        step("Открываем не главную страниц", () -> {
-            siteMapPage.openPage();
-            clearCookies();
-        });
-
-        step("Кликаем на логотип в шапке", () -> {
-            headerBlock.clickLogo();
-        });
+        siteMapPage.openPage();
+        headerBlock.clickLogo();
 
         step("Проверяем, что перешли на главную страницу", () -> {
             mainPage.verifySiteTitle(headTitleText);
@@ -38,18 +30,11 @@ public class HeaderBlockTests extends BaseTest {
 
     @Test
     @DisplayName("Быстрый поиск на главной странице")
-    @Tags({
-            @Tag("smoke"),
-            @Tag("regression"),
-            @Tag("CBR-2")
-    })
+    @Tag("smoke")
+    @Tag("regression")
+    @Tag("CBR-2")
     void quickSearchTest() {
-        String searchText = "цифровой рубль";
-
-        step("Открыть главную страниц", () -> {
-            mainPage.openPage();
-            clearCookies();
-        });
+        mainPage.openPage();
 
         step("Ввести запрос в поле поиска и нажить кнопку \"Искать\"", () -> headerBlock.searchOnSite(searchText));
 
@@ -61,16 +46,11 @@ public class HeaderBlockTests extends BaseTest {
 
     @Test
     @DisplayName("Переключение языка (RU -> EN, EN -> RU)")
-    @Tags({
-            @Tag("smoke"),
-            @Tag("regression"),
-            @Tag("CBR-4")
-    })
+    @Tag("smoke")
+    @Tag("regression")
+    @Tag("CBR-4")
     void switchLocaleTest() {
-        step("Открыть главную страниц", () -> {
-            mainPage.openPage();
-            clearCookies();
-        });
+        mainPage.openPage();
 
         step("Переключаемся на EN", () -> {
             mainPage.switchLanguage("EN");
