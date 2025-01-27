@@ -1,16 +1,13 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import helpers.Attach;
 import pages.FinOrgPage;
 import pages.MainPage;
 import pages.SearchPage;
@@ -22,7 +19,8 @@ import pages.components.OffsetMenu;
 
 import java.util.Map;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static config.ConfigProvider.webDriverConfig;
 
 public class BaseTest {
 
@@ -37,17 +35,12 @@ public class BaseTest {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.baseUrl = "https://www.cbr.ru";
-        Configuration.browserPosition = "0x0";
+        // RestAssured.baseURI = apiConfig.getBaseURI();
 
-        Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("browserVersion", "125");
-        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        if (System.getProperty("selenoidUrl") != null) {
-            Configuration.remote = "https://" +
-                    System.getProperty("selenoidAuth") + "@"
-                    + System.getProperty("selenoidUrl") + "/wd/hub";
+        Configuration.baseUrl = webDriverConfig.getBaseUrl();
 
+        if (webDriverConfig.getRemoteUrl() != null) {
+            Configuration.remote = webDriverConfig.getRemoteUrl();
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                     "enableVNC", true,
@@ -56,11 +49,14 @@ public class BaseTest {
             Configuration.browserCapabilities = capabilities;
         }
 
-        SelenideLogger.addListener("allure", new AllureSelenide());
+        Configuration.browser = webDriverConfig.getBrowser();
+        Configuration.browserVersion = webDriverConfig.getBrowserVersion();
+        Configuration.browserSize = webDriverConfig.getBrowserSize();
     }
 
     @BeforeEach
     void setUp() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         cookiesComponent.addAcceptCookies();
     }
 
@@ -73,17 +69,4 @@ public class BaseTest {
 
         closeWebDriver();
     }
-
-//    public void clearCookies() {
-//        SelenideElement popupCookies = $(".popup-cookies");
-//        SelenideElement popupCookiesConfirmButton = $(".popup-cookies .btn");
-//
-//        Selenide.clearBrowserCookies();
-//        Selenide.clearBrowserLocalStorage();
-//
-//        if (popupCookies.exists() && popupCookies.isDisplayed())
-//            popupCookiesConfirmButton.click();
-//
-//        actions().sendKeys(Keys.HOME).perform();
-//    }
 }
