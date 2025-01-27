@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import models.CompanyInfo;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -10,6 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class FinOrgPage {
 
+    @Step("Открыть страницу \"Участники финансового рынка\"")
     public FinOrgPage openPage() {
         open("/finorg");
         return this;
@@ -42,11 +44,13 @@ public class FinOrgPage {
         $("#searchBtn").click();
     }
 
+    @Step("Проверить, что в результатах есть хотя бы 1 организация")
     public FinOrgPage verifyResultNotEmpty() {
         $$("#resultTable tbody tr").shouldBe(sizeGreaterThan(0));
         return this;
     }
 
+    @Step("Проверить, что в списке найденных организаций есть искомая организация")
     public void verifyCompanyInformation(CompanyInfo expectedCompanyInfo) {
         SelenideElement foundINN = $(byTagAndText("td", expectedCompanyInfo.getINN()));
         SelenideElement foundRow = foundINN.closest("tr");

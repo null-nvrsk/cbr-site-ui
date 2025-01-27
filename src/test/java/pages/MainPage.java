@@ -31,9 +31,9 @@ public class MainPage {
 
     public void verifyLanguage(String language) {
         $(".home-header_top .header_lang_item._active").shouldHave(text(language));
-        if (language == "RU") {
+        if (language.equals("RU")) {
             $(".home-header_top .header_logo").shouldBe(visible);
-        } else if (language == "EN") {
+        } else if (language.equals("EN")) {
             $(".home-header_top .header_logo_eng").shouldBe(visible);
         }
     }

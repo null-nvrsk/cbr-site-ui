@@ -36,12 +36,10 @@ public class HeaderBlockTests extends BaseTest {
     void quickSearchTest() {
         mainPage.openPage();
 
-        step("Ввести запрос в поле поиска и нажить кнопку \"Искать\"", () -> headerBlock.searchOnSite(searchText));
+        headerBlock.searchOnSite(searchText);
 
-        step("Проверить результаты поиска", () -> {
-            searchPage.verifyPageTitle();
-            searchPage.verifyFoundInformation(searchText);
-        });
+        searchPage.verifyPageTitle()
+                .verifyFoundInformation(searchText);
     }
 
     @Test

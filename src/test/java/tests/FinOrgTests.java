@@ -18,10 +18,7 @@ public class FinOrgTests extends BaseTest {
     @BeforeEach
     void setUp() {
         cookiesComponent.addAcceptCookies();
-
-        step("Открываем страницу \"Участники финансового рынка\"", () -> {
-            finOrgPage.openPage();
-        });
+        finOrgPage.openPage();
     }
 
     @ValueSource(strings = {
@@ -39,9 +36,7 @@ public class FinOrgTests extends BaseTest {
                     .clickSearchButton();
         });
 
-        step("Проверяем, что в результатах есть хотя бы 1 организация", () -> {
-            finOrgPage.verifyResultNotEmpty();
-        });
+        finOrgPage.verifyResultNotEmpty();
     }
 
     @DisplayName("Поиск организаций по неполному названию")
@@ -58,10 +53,8 @@ public class FinOrgTests extends BaseTest {
                     .clickSearchButton();
         });
 
-        step("Проверяем, что в списке найденных организаций есть искомая организация", () -> {
-            CompanyInfo expectedCompanyInfo = new CompanyInfo(companyName, INN, OGRN, status);
-            finOrgPage.verifyCompanyInformation(expectedCompanyInfo);
-        });
+        CompanyInfo expectedCompanyInfo = new CompanyInfo(companyName, INN, OGRN, status);
+        finOrgPage.verifyCompanyInformation(expectedCompanyInfo);
     }
 
     @EnumSource(Region.class)
@@ -78,8 +71,6 @@ public class FinOrgTests extends BaseTest {
                     .clickSearchButton();
         });
 
-        step("Проверяем, что в результатах есть хотя бы 1 организация", () -> {
-            finOrgPage.verifyResultNotEmpty();
-        });
+        finOrgPage.verifyResultNotEmpty();
     }
 }

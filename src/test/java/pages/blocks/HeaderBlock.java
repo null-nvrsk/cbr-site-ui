@@ -17,6 +17,7 @@ public class HeaderBlock {
         logoLink.click();
     }
 
+    @Step("Ввести запрос в поле поиска и нажить кнопку \"Искать\"")
     public void searchOnSite(String findString) {
         searchFieldInput.setValue(findString);
         searchFieldButton.click();
