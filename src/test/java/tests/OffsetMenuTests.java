@@ -12,8 +12,6 @@ public class OffsetMenuTests extends BaseTest {
     @BeforeEach
     void setUp() {
         cookiesComponent.addAcceptCookies();
-        mainPage.openPage();
-        offsetMenu.openOffsetMenu();
     }
 
     @DisplayName("В боковом меню 6 общих ссылок работают")
@@ -29,6 +27,9 @@ public class OffsetMenuTests extends BaseTest {
     })
     @ParameterizedTest(name = "При клике на \"{0}\" переходит на cbr.ru{1}")
     void offsetMenuQuickLinksTest(String menuItem, String pageUrl) {
+        mainPage.openPage();
+        offsetMenu.openOffsetMenu();
+
         offsetMenu.clickQuickLinkByName(menuItem);
         offsetMenu.verifyOpenedByLinkPage(menuItem, pageUrl);
     }

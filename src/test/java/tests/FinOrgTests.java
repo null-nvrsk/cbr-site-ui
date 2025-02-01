@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static com.codeborne.selenide.logevents.SelenideLogger.step;
+import static io.qameta.allure.Allure.step;
 
 @DisplayName("Поиск организаций, участников финансового рынка")
 public class FinOrgTests extends BaseTest {
@@ -18,7 +18,6 @@ public class FinOrgTests extends BaseTest {
     @BeforeEach
     void setUp() {
         cookiesComponent.addAcceptCookies();
-        finOrgPage.openPage();
     }
 
     @ValueSource(strings = {
@@ -29,6 +28,8 @@ public class FinOrgTests extends BaseTest {
     @Tag("regression")
     @Tag("CBR-20")
     void searchFinOrgWithFilterByStatusTest(String status) {
+        finOrgPage.openPage();
+
         step("Выбираем статус среди \"Бюро кредитных историй\"", () -> {
             finOrgPage
                     .selectFilterTypeOrganisation("Бюро кредитных историй")
@@ -47,6 +48,8 @@ public class FinOrgTests extends BaseTest {
     @Tag("CBR-19")
     void checkByPartialNameOfTheOrganizationTest(String requestString, String companyName, String INN,
                                                  String OGRN, String status) {
+        finOrgPage.openPage();
+
         step("Ищет по неполному названию организации", () -> {
             finOrgPage
                     .inputSearchPrase(requestString)
@@ -63,6 +66,8 @@ public class FinOrgTests extends BaseTest {
     @Tag("regression")
     @Tag("CBR-21")
     void searchFinOrgWithFilterByRegionTest(Region region) {
+        finOrgPage.openPage();
+
         step("Выбираем регион среди \"Микрофинансовые организации\"", () -> {
             finOrgPage
                     .selectFilterTypeOrganisation("Микрофинансовые организации")
