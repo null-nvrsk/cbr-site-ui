@@ -8,14 +8,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import pages.FinOrgPage;
 import pages.MainPage;
 import pages.SearchPage;
 import pages.SiteMapPage;
-import pages.blocks.FooterBlock;
-import pages.blocks.HeaderBlock;
 import pages.components.CookiesComponent;
-import pages.components.OffsetMenu;
 
 import java.util.Map;
 
@@ -24,14 +20,10 @@ import static config.ConfigProvider.webDriverConfig;
 
 public class BaseTest {
 
-    SiteMapPage siteMapPage = new SiteMapPage();
-    MainPage mainPage = new MainPage();
-    HeaderBlock headerBlock = new HeaderBlock();
-    FooterBlock footerBlock = new FooterBlock();
-    SearchPage searchPage = new SearchPage();
-    FinOrgPage finOrgPage = new FinOrgPage();
-    OffsetMenu offsetMenu = new OffsetMenu();
-    CookiesComponent cookiesComponent = new CookiesComponent();
+    protected final MainPage mainPage = new MainPage();
+    protected final SiteMapPage siteMapPage = new SiteMapPage();
+    protected final SearchPage searchPage = new SearchPage();
+    protected final CookiesComponent cookiesComponent = new CookiesComponent();
 
     @BeforeAll
     static void beforeAll() {

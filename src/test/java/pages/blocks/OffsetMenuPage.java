@@ -1,4 +1,4 @@
-package pages.components;
+package pages.blocks;
 
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Step;
@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.urlStartingWith;
 
-public class OffsetMenu {
+public class OffsetMenuPage {
 
     @Step("Вызывать боковое меню")
     public void openOffsetMenu() {

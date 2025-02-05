@@ -3,26 +3,28 @@ package tests;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import pages.blocks.HeaderPage;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
 @DisplayName("Проверка шапки сайта (верхний блок)")
-public class HeaderBlockTests extends BaseTest {
+public class HeaderTests extends BaseTest {
 
     private final String headTitleText = "Центральный банк Российской Федерации | Банк России";
     private final String inflationTargetText = "Цель по инфляции";
     private final String searchText = "цифровой рубль";
 
+    private final HeaderPage headerPage = new HeaderPage();
+
     @Test
-    @DisplayName("Логотип кликабельный")
+    @DisplayName("Проверить кликабельность логотипа")
     @Tag("smoke")
-    @Tag("regression")
     @Tag("CBR-1")
     void checkClickableLogoTest() {
         siteMapPage.openPage();
-        headerBlock.clickLogo();
+        headerPage.clickLogo();
 
-        step("Проверяем, что перешли на главную страницу", () -> {
+        step("Проверить, что перешли на главную страницу", () -> {
             mainPage.verifySiteTitle(headTitleText);
             mainPage.verifyInflationTargetTitle(inflationTargetText);
         });
@@ -31,12 +33,11 @@ public class HeaderBlockTests extends BaseTest {
     @Test
     @DisplayName("Быстрый поиск на главной странице")
     @Tag("smoke")
-    @Tag("regression")
     @Tag("CBR-2")
     void quickSearchTest() {
         mainPage.openPage();
 
-        headerBlock.searchOnSite(searchText);
+        headerPage.searchOnSite(searchText);
 
         searchPage.verifyPageTitle()
                 .verifyFoundInformation(searchText);
@@ -45,7 +46,6 @@ public class HeaderBlockTests extends BaseTest {
     @Test
     @DisplayName("Переключение языка (RU -> EN, EN -> RU)")
     @Tag("smoke")
-    @Tag("regression")
     @Tag("CBR-4")
     void switchLocaleTest() {
         mainPage.openPage();

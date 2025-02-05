@@ -11,7 +11,6 @@ public class CookiesComponent {
     @Step("Подтвердить использование файлов cookie")
     public void addAcceptCookies() {
         open("/common/images/icons/arr_main.svg");
-//        open("/favicon.ico");
         getWebDriver().manage().addCookie(new Cookie("accept", "1"));
     }
 }

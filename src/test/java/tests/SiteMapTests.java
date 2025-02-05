@@ -16,9 +16,8 @@ public class SiteMapTests extends BaseTest {
     int mapBlocksCount = 24;
 
     @Test
-    @DisplayName("Проверка заголовков верхнего уровня")
+    @DisplayName("Проверить заголовки верхнего уровня")
     @Tag("smoke")
-    @Tag("regression")
     @Tag("CBR-15")
     void mainGroupsTest() {
         siteMapPage.openPage();

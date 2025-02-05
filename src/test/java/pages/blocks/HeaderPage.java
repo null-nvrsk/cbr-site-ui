@@ -6,11 +6,11 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.$$;
 
-public class HeaderBlock {
+public class HeaderPage {
 
-    SelenideElement logoLink = $$("header .header_logo").find(Condition.visible);
-    SelenideElement searchFieldInput = $$(".home-header_search_field input").find(Condition.visible);
-    SelenideElement searchFieldButton = $$(".home-header_search_field button").find(Condition.visible);
+    private SelenideElement logoLink = $$("header .header_logo").find(Condition.visible);
+    private SelenideElement searchFieldInput = $$(".home-header_search_field input").find(Condition.visible);
+    private SelenideElement searchFieldButton = $$(".home-header_search_field button").find(Condition.visible);
 
     @Step("Кликнуть на логотип в шапке")
     public void clickLogo() {
