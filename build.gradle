@@ -61,7 +61,6 @@ task smoke_tests(type: Test) {
 }
 
 task regression_tests(type: Test) {
-    useJUnitPlatform {
-        includeTags("regression")
-    }
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
 }
