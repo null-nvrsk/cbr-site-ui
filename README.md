@@ -56,24 +56,28 @@
 При выполнении команды, данные тесты запустятся локально в IDE.
 - Smoke-тесты
 ```
-gradle clean smoke_tests
+gradle clean smoke_tests -Denv=local-chrome
 ```
 
 - Регрессионные тесты
 ```
-gradle clean regression_tests
+gradle clean regression_tests -Denv=local-firefox
 ```
 
 
 ### Запуск тестов на удаленном браузере
 - Smoke-тесты
 ```
-gradle clean smoke_tests -DselenoidUrl="selenoid.autotests.cloud" -DselenoidAuth="some_login:some_password"
+gradle clean smoke_tests -Denv=remote-chrome
+
+[//]: # (gradle clean smoke_tests -DselenoidUrl="selenoid.autotests.cloud" -DselenoidAuth="some_login:some_password")
 ```
 
 - Регрессионные тесты
 ```
-gradle clean regression_tests -DselenoidUrl="selenoid.autotests.cloud" -DselenoidAuth="some_login:some_password"
+gradle clean regression_tests -Denv=remote-firefox
+
+[//]: # (gradle clean regression_tests -DselenoidUrl="selenoid.autotests.cloud" -DselenoidAuth="some_login:some_password")
 ```
 При выполнении команды, данные тесты запустятся удаленно в <code>Selenoid</code>.
 При необходимости также можно переопределить параметры запуска
@@ -81,16 +85,23 @@ gradle clean regression_tests -DselenoidUrl="selenoid.autotests.cloud" -Dselenoi
 ```
 clean
 ${TASK}
--DselenoidUrl=${SELENOID_URL}
--DselenoidAuth=${SELENOID_AUTH}
--Dbrowser=${BROWSER}
--DbrowserVersion="${BROWSER_VERSION}"
--DbrowserSize=${BROWSER_SIZE}
+-Denv=${ENV}
+
+[//]: # (-DselenoidUrl=${SELENOID_URL})
+
+[//]: # (-DselenoidAuth=${SELENOID_AUTH})
+
+[//]: # (-Dbrowser=${BROWSER})
+
+[//]: # (-DbrowserVersion="${BROWSER_VERSION}")
+
+[//]: # (-DbrowserSize=${BROWSER_SIZE})
 ```
 
 ### Параметры сборки
 * <code>TASK</code> – Команда запуска тестов (<b>smoke_tests</b> или <b>regression_tests</b>)
 * <code>ENV</code> – профиль окружения где будут запускаться тесты: локально - <b>local-chrome</b>, <b>local-firefox</b>, удаленно - <b>remote-chrome</b>, <b>remote-firefox</b>
+
 [//]: # (* <code>BROWSER</code> – браузер, в котором будут выполняться тесты. По-умолчанию - <code>chrome</code>.)
 
 [//]: # (* <code>BROWSER_VERSION</code> – версия браузера, в которой будут выполняться тесты. По-умолчанию - <code>125.0</code>.)
