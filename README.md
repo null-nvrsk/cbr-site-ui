@@ -69,15 +69,11 @@ gradle clean regression_tests -Denv=local-firefox
 - Smoke-тесты
 ```
 gradle clean smoke_tests -Denv=remote-chrome
-
-[//]: # (gradle clean smoke_tests -DselenoidUrl="selenoid.autotests.cloud" -DselenoidAuth="some_login:some_password")
 ```
 
 - Регрессионные тесты
 ```
 gradle clean regression_tests -Denv=remote-firefox
-
-[//]: # (gradle clean regression_tests -DselenoidUrl="selenoid.autotests.cloud" -DselenoidAuth="some_login:some_password")
 ```
 При выполнении команды, данные тесты запустятся удаленно в <code>Selenoid</code>.
 При необходимости также можно переопределить параметры запуска
@@ -86,16 +82,6 @@ gradle clean regression_tests -Denv=remote-firefox
 clean
 ${TASK}
 -Denv=${ENV}
-
-[//]: # (-DselenoidUrl=${SELENOID_URL})
-
-[//]: # (-DselenoidAuth=${SELENOID_AUTH})
-
-[//]: # (-Dbrowser=${BROWSER})
-
-[//]: # (-DbrowserVersion="${BROWSER_VERSION}")
-
-[//]: # (-DbrowserSize=${BROWSER_SIZE})
 ```
 
 ### Параметры сборки
