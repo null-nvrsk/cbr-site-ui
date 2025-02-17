@@ -89,13 +89,17 @@ ${TASK}
 ```
 
 ### Параметры сборки
-* <code>TASK</code> – Команда запуска тестов.
-* <code>BROWSER</code> – браузер, в котором будут выполняться тесты. По-умолчанию - <code>chrome</code>.
-* <code>BROWSER_VERSION</code> – версия браузера, в которой будут выполняться тесты. По-умолчанию - <code>125.0</code>.
-* <code>BROWSER_SIZE</code> – размер окна браузера, в котором будут выполняться тесты. По-умолчанию - <code>1920x1080</code>.
-* <code>SELENOID_URL</code> – адрес удаленного сервера Selenoid, на котором будут запускаться тесты.
-* <code>SELENOID_AUTH</code> – логин:пароль для доступа к удаленному серверу Selenoid.
-* 
+* <code>TASK</code> – Команда запуска тестов (<b>smoke_tests</b> или <b>regression_tests</b>)
+* <code>ENV</code> – профиль окружения где будут запускаться тесты: локально - <b>local-chrome</b>, <b>local-firefox</b>, удаленно - <b>remote-chrome</b>, <b>remote-firefox</b>
+[//]: # (* <code>BROWSER</code> – браузер, в котором будут выполняться тесты. По-умолчанию - <code>chrome</code>.)
+
+[//]: # (* <code>BROWSER_VERSION</code> – версия браузера, в которой будут выполняться тесты. По-умолчанию - <code>125.0</code>.)
+
+[//]: # (* <code>BROWSER_SIZE</code> – размер окна браузера, в котором будут выполняться тесты. По-умолчанию - <code>1920x1080</code>.)
+
+[//]: # (* <code>SELENOID_URL</code> – адрес удаленного сервера Selenoid, на котором будут запускаться тесты.)
+
+[//]: # (* <code>SELENOID_AUTH</code> – логин:пароль для доступа к удаленному серверу Selenoid.)
 
 ## <img src="media/icons/jenkins.svg" title="Jenkins" height="32" style="vertical-align:middle"/> Сборка в Jenkins
 <p align="center">
