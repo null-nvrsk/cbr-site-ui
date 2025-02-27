@@ -2,9 +2,10 @@ package config;
 
 import org.aeonbits.owner.Config;
 
+@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-        "classpath:config/${env}.properties",
-        "classpath:config/local-chrome.properties"
+        "system:properties",
+        "classpath:${env}.properties"
 })
 public interface WebDriverConfig extends Config {
 
@@ -15,11 +16,9 @@ public interface WebDriverConfig extends Config {
     String getRemoteUrl();
 
     @Key("webdriver.browser")
-    @DefaultValue("chrome")
     String getBrowser();
 
     @Key("webdriver.browserVersion")
-    @DefaultValue("125.0")
     String getBrowserVersion();
 
     @Key("webdriver.browserSize")
