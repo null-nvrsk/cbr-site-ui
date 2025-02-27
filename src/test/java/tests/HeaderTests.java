@@ -1,5 +1,9 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -7,6 +11,10 @@ import pages.blocks.HeaderPage;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
+@Tag("web")
+@Owner("Maksim Skomorokhov")
+@Epic("UI")
+@Feature("Шапка")
 @DisplayName("Проверка шапки сайта (верхний блок)")
 public class HeaderTests extends BaseTest {
 
@@ -18,8 +26,8 @@ public class HeaderTests extends BaseTest {
 
     @Test
     @DisplayName("Проверить кликабельность логотипа")
+    @Story("Проверить логотип")
     @Tag("smoke")
-    @Tag("CBR-1")
     void checkClickableLogoTest() {
         siteMapPage.openPage();
         headerPage.clickLogo();
@@ -32,8 +40,8 @@ public class HeaderTests extends BaseTest {
 
     @Test
     @DisplayName("Быстрый поиск на главной странице")
+    @Story("Поиск в поле быстрого поиска")
     @Tag("smoke")
-    @Tag("CBR-2")
     void quickSearchTest() {
         mainPage.openPage();
 
@@ -45,8 +53,8 @@ public class HeaderTests extends BaseTest {
 
     @Test
     @DisplayName("Переключение языка (RU -> EN, EN -> RU)")
+    @Story("Переключение языка")
     @Tag("smoke")
-    @Tag("CBR-4")
     void switchLocaleTest() {
         mainPage.openPage();
 

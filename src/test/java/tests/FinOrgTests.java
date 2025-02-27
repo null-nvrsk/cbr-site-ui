@@ -1,5 +1,9 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import models.CompanyInfo;
 import models.Region;
 import org.junit.jupiter.api.DisplayName;
@@ -12,6 +16,10 @@ import pages.FinOrgPage;
 
 import static io.qameta.allure.Allure.step;
 
+@Tag("web")
+@Owner("Maksim Skomorokhov")
+@Epic("Блок \"Прочее\"")
+@Feature("Проверить участника финансового рынка")
 @DisplayName("Поиск организаций, участников финансового рынка")
 public class FinOrgTests extends BaseTest {
 
@@ -20,8 +28,8 @@ public class FinOrgTests extends BaseTest {
     @DisplayName("Поиск организаций по неполному названию")
     @CsvFileSource(resources = "/data/finOrg.csv", delimiter = '\t', numLinesToSkip = 1)
     @ParameterizedTest(name = "Запрос \"{0}\" должен найти компанию {1} (ИНН/ОГРН {2}/{3}). Статус - {4}")
+    @Story("Поиск организаций по неполному названию")
     @Tag("smoke")
-    @Tag("CBR-19")
     void checkByPartialNameOfTheOrganizationTest(String requestString, String companyName, String INN,
                                                  String OGRN, String status) {
         finOrgPage.openPage();
@@ -41,7 +49,7 @@ public class FinOrgTests extends BaseTest {
     })
     @DisplayName("Проверить фильтр поиска \"Статус вида деятельности\"")
     @ParameterizedTest(name = "\"{0}\" должен показать не пустой список")
-    @Tag("CBR-20")
+    @Story("Проверить фильтр \"Статус вида деятельности\"")
     void searchFinOrgWithFilterByStatusTest(String status) {
         finOrgPage.openPage();
 
@@ -58,7 +66,7 @@ public class FinOrgTests extends BaseTest {
     @EnumSource(Region.class)
     @DisplayName("Проверить фильтр поиска по региону организаций")
     @ParameterizedTest(name = "по региону \"{0}\" должен показать не пустой список")
-    @Tag("CBR-21")
+    @Story("Проверить фильтр по региону")
     void searchFinOrgWithFilterByRegionTest(Region region) {
         finOrgPage.openPage();
 

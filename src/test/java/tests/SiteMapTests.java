@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
@@ -8,8 +9,8 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
 
-@Feature("Вспомогательные статические страницы")
-@Story("Карта сайта")
+@Epic("Вспомогательные статические страницы")
+@Feature("Карта сайта")
 @DisplayName("Проверка страницы \"Карта сайта\"")
 public class SiteMapTests extends BaseTest {
 
@@ -17,8 +18,8 @@ public class SiteMapTests extends BaseTest {
 
     @Test
     @DisplayName("Проверить заголовки верхнего уровня")
+    @Story("Заголовки 1-го уровня")
     @Tag("smoke")
-    @Tag("CBR-15")
     void mainGroupsTest() {
         siteMapPage.openPage();
 

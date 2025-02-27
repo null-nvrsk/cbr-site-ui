@@ -54,13 +54,14 @@ tasks.withType(Test).configureEach {
     }
 }
 
-task smoke_tests(type: Test) {
+tasks.register('smoke_tests', Test) {
     useJUnitPlatform {
         includeTags("smoke")
     }
+    systemProperties(System.getProperties())
 }
 
-task regression_tests(type: Test) {
+tasks.register('regression_tests', Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
 }

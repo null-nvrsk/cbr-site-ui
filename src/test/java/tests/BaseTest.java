@@ -27,8 +27,6 @@ public class BaseTest {
 
     @BeforeAll
     static void beforeAll() {
-        // RestAssured.baseURI = apiConfig.getBaseURI();
-
         Configuration.baseUrl = webDriverConfig.getBaseUrl();
 
         if (webDriverConfig.getRemoteUrl() != null) {
