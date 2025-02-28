@@ -39,9 +39,9 @@ public class BaseTest {
             Configuration.browserCapabilities = capabilities;
         }
 
-        Configuration.browser = webDriverConfig.getBrowser();
-        Configuration.browserVersion = webDriverConfig.getBrowserVersion();
-        Configuration.browserSize = webDriverConfig.getBrowserSize();
+        Configuration.browser = System.getProperty("browser", webDriverConfig.getBrowser());
+        Configuration.browserVersion = System.getProperty("browserVersion",  webDriverConfig.getBrowserVersion());
+        Configuration.browserSize = System.getProperty("browserSize", webDriverConfig.getBrowserSize());
     }
 
     @BeforeEach

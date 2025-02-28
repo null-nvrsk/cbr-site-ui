@@ -8,10 +8,6 @@ import org.aeonbits.owner.Config;
         "classpath:config/${env}.properties",
         "classpath:config/local.properties"
 })
-//@Config.Sources({
-//        "classpath:config/${env}.properties",
-//        "classpath:config/local.properties"
-//})
 public interface WebDriverConfig extends Config {
 
     @Key("webdriver.baseUrl")
