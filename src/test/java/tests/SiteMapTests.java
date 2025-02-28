@@ -7,14 +7,38 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.logevents.SelenideLogger.step;
-
 @Epic("Вспомогательные статические страницы")
 @Feature("Карта сайта")
-@DisplayName("Проверка страницы \"Карта сайта\"")
+@DisplayName("Проверить страницу \"Карта сайта\"")
 public class SiteMapTests extends BaseTest {
 
     int mapBlocksCount = 24;
+    String[] blocks = {
+            "Денежно-кредитная политика",
+            "Финансовая стабильность",
+            "Национальная платежная система",
+            "Наличное денежное обращение",
+            "Развитие финансового рынка",
+            "Развитие финансовых технологий",
+            "Защита прав потребителей финансовых услуг",
+            "Информационная безопасность",
+            "Противодействие недобросовестным практикам",
+            "Противодействие отмыванию денег и валютный контроль",
+            "Допуск на финансовый рынок",
+            "Деловая репутация",
+            "Исследования",
+            "Операции Банка России",
+            "Банковский сектор",
+            "Пенсионные фонды и коллективные инвестиции",
+            "Страхование",
+            "Рынок ценных бумаг",
+            "Эмитенты и корпоративное управление",
+            "Микрофинансирование",
+            "Инфраструктура финансового рынка",
+            "Кредитные истории",
+            "О Банке России",
+            "Прочее"
+    };
 
     @Test
     @DisplayName("Проверить заголовки верхнего уровня")
@@ -23,36 +47,9 @@ public class SiteMapTests extends BaseTest {
     void mainGroupsTest() {
         siteMapPage.openPage();
 
-        step("Проверяем количество блоков верхнего уровня", () -> {
-            siteMapPage.verifyMainBlocksCount(mapBlocksCount);
-        });
-
-        step("Проверяем заголовок каждого блока", () -> {
-            siteMapPage
-                    .verifyMainBlockTitle("Денежно-кредитная политика")
-                    .verifyMainBlockTitle("Финансовая стабильность")
-                    .verifyMainBlockTitle("Национальная платежная система")
-                    .verifyMainBlockTitle("Наличное денежное обращение")
-                    .verifyMainBlockTitle("Развитие финансового рынка")
-                    .verifyMainBlockTitle("Развитие финансовых технологий")
-                    .verifyMainBlockTitle("Защита прав потребителей финансовых услуг")
-                    .verifyMainBlockTitle("Информационная безопасность")
-                    .verifyMainBlockTitle("Противодействие недобросовестным практикам")
-                    .verifyMainBlockTitle("Противодействие отмыванию денег и валютный контроль")
-                    .verifyMainBlockTitle("Допуск на финансовый рынок")
-                    .verifyMainBlockTitle("Деловая репутация")
-                    .verifyMainBlockTitle("Исследования")
-                    .verifyMainBlockTitle("Операции Банка России")
-                    .verifyMainBlockTitle("Банковский сектор")
-                    .verifyMainBlockTitle("Пенсионные фонды и коллективные инвестиции")
-                    .verifyMainBlockTitle("Страхование")
-                    .verifyMainBlockTitle("Рынок ценных бумаг")
-                    .verifyMainBlockTitle("Эмитенты и корпоративное управление")
-                    .verifyMainBlockTitle("Микрофинансирование")
-                    .verifyMainBlockTitle("Инфраструктура финансового рынка")
-                    .verifyMainBlockTitle("Кредитные истории")
-                    .verifyMainBlockTitle("О Банке России")
-                    .verifyMainBlockTitle("Прочее");
-        });
+        siteMapPage.verifyMainBlocksCount(mapBlocksCount);
+        for (String block : blocks) {
+            siteMapPage.verifyMainBlockTitle(block);
+        }
     }
 }

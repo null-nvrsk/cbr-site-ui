@@ -1,5 +1,6 @@
 package pages.blocks;
 
+import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.exactText;
@@ -8,9 +9,11 @@ import static com.codeborne.selenide.Selenide.$$;
 
 public class FooterPage {
 
+    private final ElementsCollection phones = $$(".footer_phone_val");
+
     @Step("Проверить телефон \"{phoneNumber}\"")
     public FooterPage verifyPhoneNumber(String phoneNumber) {
-        $$(".footer_phone_val").find(exactText(phoneNumber)).shouldBe(visible);
+        phones.find(exactText(phoneNumber)).shouldBe(visible);
         return this;
     }
 }

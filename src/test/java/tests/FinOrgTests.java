@@ -14,8 +14,6 @@ import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import pages.FinOrgPage;
 
-import static io.qameta.allure.Allure.step;
-
 @Tag("web")
 @Owner("Maksim Skomorokhov")
 @Epic("Блок \"Прочее\"")
@@ -32,13 +30,9 @@ public class FinOrgTests extends BaseTest {
     @Tag("smoke")
     void checkByPartialNameOfTheOrganizationTest(String requestString, String companyName, String INN,
                                                  String OGRN, String status) {
-        finOrgPage.openPage();
-
-        step("Ищет по неполному названию организации", () -> {
-            finOrgPage
-                    .inputSearchPrase(requestString)
-                    .clickSearchButton();
-        });
+        finOrgPage.openPage()
+                .inputSearchPhrase(requestString)
+                .clickSearchButton();
 
         CompanyInfo expectedCompanyInfo = new CompanyInfo(companyName, INN, OGRN, status);
         finOrgPage.verifyCompanyInformation(expectedCompanyInfo);
@@ -47,18 +41,14 @@ public class FinOrgTests extends BaseTest {
     @ValueSource(strings = {
             "Все", "Действует", "Не действует"
     })
-    @DisplayName("Проверить фильтр поиска \"Статус вида деятельности\"")
+    @DisplayName("Проверить фильтр поиска \"Статус УФР/вида деятельности\"")
     @ParameterizedTest(name = "\"{0}\" должен показать не пустой список")
-    @Story("Проверить фильтр \"Статус вида деятельности\"")
+    @Story("Проверить фильтр \"Статус УФР/вида деятельности\"")
     void searchFinOrgWithFilterByStatusTest(String status) {
-        finOrgPage.openPage();
-
-        step("Выбираем статус среди \"Бюро кредитных историй\"", () -> {
-            finOrgPage
-                    .selectFilterTypeOrganisation("Бюро кредитных историй")
-                    .selectFilterActivityStatus(status)
-                    .clickSearchButton();
-        });
+        finOrgPage.openPage()
+                .selectFilterTypeOrganisation("Бюро кредитных историй")
+                .selectFilterActivityStatus(status)
+                .clickSearchButton();
 
         finOrgPage.verifyResultNotEmpty();
     }
@@ -68,15 +58,11 @@ public class FinOrgTests extends BaseTest {
     @ParameterizedTest(name = "по региону \"{0}\" должен показать не пустой список")
     @Story("Проверить фильтр по региону")
     void searchFinOrgWithFilterByRegionTest(Region region) {
-        finOrgPage.openPage();
-
-        step("Выбираем регион среди \"Микрофинансовые организации\"", () -> {
-            finOrgPage
-                    .selectFilterTypeOrganisation("Микрофинансовые организации")
-                    .selectFilterActivityStatus("Действует")
-                    .selectFilterRegion(region.description)
-                    .clickSearchButton();
-        });
+        finOrgPage.openPage()
+                .selectFilterTypeOrganisation("Микрофинансовые организации")
+                .selectFilterActivityStatus("Действует")
+                .selectFilterRegion(region.description)
+                .clickSearchButton();
 
         finOrgPage.verifyResultNotEmpty();
     }

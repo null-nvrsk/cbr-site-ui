@@ -22,11 +22,13 @@ public class SiteMapPage {
         return this;
     }
 
+    @Step("Проверить количество блоков верхнего уровня")
     public SiteMapPage verifyMainBlocksCount(int count) {
         mapBlockTitles.shouldBe(size(count));
         return this;
     }
 
+    @Step("Проверить заголовок блока \"{title}\"")
     public SiteMapPage verifyMainBlockTitle(String title) {
         mapBlockTitles.findBy(text(title)).should(exist);
         return this;

@@ -44,7 +44,6 @@ public class HeaderTests extends BaseTest {
     @Tag("smoke")
     void quickSearchTest() {
         mainPage.openPage();
-
         headerPage.searchOnSite(searchText);
 
         searchPage.verifyPageTitle()
@@ -58,12 +57,12 @@ public class HeaderTests extends BaseTest {
     void switchLocaleTest() {
         mainPage.openPage();
 
-        step("Переключаемся на EN", () -> {
+        step("Переключить язык на Английский", () -> {
             mainPage.switchLanguage("EN");
             mainPage.verifyLanguage("EN");
         });
 
-        step("Переключаемся на RU", () -> {
+        step("Переключить язык на Русский", () -> {
             mainPage.switchLanguage("RU");
             mainPage.verifyLanguage("RU");
         });
